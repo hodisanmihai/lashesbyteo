@@ -67,7 +67,7 @@ const Preturi = () => {
           Prețuri
         </h1>
       </div>
-      <div className="w-full flex items-center  max-w-[70%] flex-nowrap space-x-6 overflow-auto overscroll-x-contain px-4 py-6 scrollbar-thin scrollbar-thumb-[#FF1493] scrollbar-track-transparent">
+      <div className="w-full flex items-center  md:max-w-[70%] flex-nowrap space-x-6 overflow-auto overscroll-x-contain px-12 py-6 scrollbar-thin scrollbar-thumb-[#FF1493] scrollbar-track-transparent">
         {priceCards.map(({ title, description, prices }, index) => (
           <PriceCard
             key={index}
