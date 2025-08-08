@@ -2,13 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import {
-  FaTiktok,
-  FaInstagram,
-  FaFacebook,
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
+import { FaTiktok, FaInstagram, FaFacebook } from "react-icons/fa";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);

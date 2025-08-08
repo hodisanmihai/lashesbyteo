@@ -13,7 +13,7 @@ const Hero = () => {
         {/* headers */}
         <div className="w-full text-center px-4">
           <h1 className="secondaryFont text-3xl md:text-5xl py-6 leading-tight">
-            Your life isn't perfect, but your lashes can be
+            Your life isn&rsquo;t perfect, but your lashes can be
           </h1>
           <h2 className="text-xl md:text-2xl py-4 leading-relaxed">
             Gene profesionale în Oradea, stilizate cu grijă pentru un look
