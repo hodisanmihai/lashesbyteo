@@ -59,7 +59,7 @@ const cardItems: InfoCardItem[] = [
 const Info = () => {
   return (
     <div
-      id="about"
+      id="info"
       className="w-full min-h-screen flex flex-col relative bg-white text-[#333333] px-4 justify-center items-center overflow-hidden"
     >
       {/* svg */}
