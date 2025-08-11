@@ -32,7 +32,7 @@ const Footer = () => {
           <ul className="space-y-2 text-sm text-center">
             <li>
               <a
-                href="#"
+                href="https://www.instagram.com/lashes.by.teo/"
                 className="hover:text-pink-500 transition-colors duration-300"
               >
                 Instagram
@@ -40,7 +40,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61578594477142"
                 className="hover:text-pink-500 transition-colors duration-300"
               >
                 Facebook
@@ -48,7 +48,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="https://www.tiktok.com/@teotirpe"
                 className="hover:text-pink-500 transition-colors duration-300"
               >
                 TikTok
