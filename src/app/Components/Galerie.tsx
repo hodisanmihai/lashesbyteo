@@ -73,7 +73,7 @@ const Galerie = () => {
   return (
     <div
       id="galerie"
-      className="w-full h-auto flex relative flex-col justify-center items-center text-[#333333] px-6 py-12"
+      className="w-full h-auto flex relative flex-col justify-center items-center text-[#333333] px-6 py-12 overflow-hidden"
     >
       <svg
         className="absolute top-0 m-0 w-screen h-[80px] md:h-[100px] lg:h-[120px]"
