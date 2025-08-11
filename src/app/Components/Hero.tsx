@@ -26,7 +26,7 @@ const Hero = () => {
         <div className="w-full flex flex-col md:flex-row justify-center items-center gap-4 md:gap-12 text-base md:text-lg">
           <a
             href="#about"
-            className="bg-[#FF1493] px-12 py-3 text-white rounded-full text-center "
+            className="bg-[#FF1493] px-12 py-3 text-white rounded-full text-center hover:scale-105 hover:bg-pink-600 transition-transform duration-300 "
           >
             Află mai multe
           </a>
@@ -34,10 +34,10 @@ const Hero = () => {
             href="https://ig.me/m/lashes.by.teo"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#333333] text-white px-6 py-3 rounded-full flex items-center gap-2"
+            className="group bg-[#333333] text-white px-6 py-3 rounded-full flex items-center gap-2 hover:scale-105 hover:bg-pink-600 transition-transform duration-300"
           >
             Programează-te
-            <span className="bg-white text-[#333333] w-8 h-8 rounded-full flex items-center justify-center text-sm">
+            <span className="bg-white text-[#333333] w-8 h-8 rounded-full flex items-center justify-center text-sm group-hover:text-pink-600 ">
               <MoveUpRight />
             </span>
           </a>
