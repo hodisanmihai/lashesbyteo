@@ -35,7 +35,7 @@ const Thumbnails: React.FC<ThumbnailsProps> = ({
               whileTap={{ scale: 0.95 }}
               key={globalIndex}
               src={img}
-              alt={`Thumbnail ${globalIndex}`}
+              alt={`Lashes By Teo Gene Oradea${globalIndex}`}
               onClick={() => onSelect(globalIndex)}
               className={`w-full h-[80px] object-contain rounded-lg cursor-pointer border-2 ${
                 selectedIndex === globalIndex

@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="relative w-28 h-28">
             <Image
               src="/assets/logo.PNG"
-              alt="lashesbyteo"
+              alt="Lashes By Teo Gene Oradea"
               fill
               className="object-contain"
               priority

@@ -99,7 +99,7 @@ const Galerie = () => {
               <motion.img
                 key={selectedIndex}
                 src={images[selectedIndex]}
-                alt={`Preview`}
+                alt={`Lashes By Teo Gene Oradea`}
                 className="w-full h-full object-contain"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -119,7 +119,7 @@ const Galerie = () => {
                     whileTap={{ scale: 0.95 }}
                     key={globalIndex}
                     src={img}
-                    alt={`Thumbnail ${globalIndex}`}
+                    alt={`Lashes By Teo Gene Oradea ${globalIndex}`}
                     onClick={() => handleSelect(globalIndex)}
                     className={`w-full h-[80px] object-contain rounded-lg cursor-pointer border-2 ${
                       selectedIndex === globalIndex

@@ -24,7 +24,7 @@ const Navbar = () => {
           <a href="#hero">
             <Image
               src="/assets/logo.PNG"
-              alt="lashesbyteo"
+              alt="Lashes By Teo Gene Oradea"
               fill
               sizes="96px"
               className="object-contain"

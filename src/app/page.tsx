@@ -7,10 +7,12 @@ import Preturi from "./Components/Preturi";
 import Info from "./Components/Info";
 import Galerie from "./Components/Galerie";
 import Footer from "./Components/Footer";
+import LoadingScreen from "./Components/LoadingScreen";
 
 export default function Home() {
   return (
     <div>
+      <LoadingScreen />
       <Navbar />
       <Hero />
       <About />
