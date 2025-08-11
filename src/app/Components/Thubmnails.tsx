@@ -57,7 +57,7 @@ const Thumbnails: React.FC<ThumbnailsProps> = ({
           onClick={onPrevPage}
           className="px-2 py-1 rounded bg-pink-500 text-white"
         >
-          ◀
+          ▶
         </button>
         {Array.from({ length: totalPages }).map((_, i) => (
           <button

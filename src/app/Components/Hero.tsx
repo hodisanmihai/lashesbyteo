@@ -2,6 +2,7 @@
 
 import React from "react";
 import BackgroundV from "./BackgroundV";
+import { MoveUpRight } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -37,7 +38,7 @@ const Hero = () => {
           >
             Programează-te
             <span className="bg-white text-[#333333] w-8 h-8 rounded-full flex items-center justify-center text-sm">
-              &#8599;
+              <MoveUpRight />
             </span>
           </a>
         </div>

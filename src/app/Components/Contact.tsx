@@ -21,7 +21,7 @@ const Contact = () => {
 
         <div className="flex flex-wrap gap-6 mt-4 justify-center ">
           <a
-            href="https://instagram.com/username"
+            href="https://ig.me/m/lashes.by.teo"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 px-6 py-3 rounded-full bg-pink-500 text-white text-lg font-semibold shadow-lg hover:scale-105 hover:bg-pink-600 transition-transform duration-300"
@@ -31,7 +31,7 @@ const Contact = () => {
           </a>
 
           <a
-            href="https://m.me/username"
+            href="https://m.me/61578594477142"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 px-6 py-3 rounded-full bg-blue-600 text-white text-lg font-semibold shadow-lg hover:scale-105 hover:bg-blue-700 transition-transform duration-300"

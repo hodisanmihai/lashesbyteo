@@ -26,7 +26,7 @@ const PriceCard: React.FC<PriceCardProps> = ({
         {title.toUpperCase()}
       </div>
 
-      <h3 className="secondaryFont text-2xl mb-1 z-10 relative">{title}</h3>
+      <h1 className="secondaryFont text-2xl mb-1 z-10 relative">{title}</h1>
       <p className="text-sm text-black/80 mb-4 z-10 relative">{description}</p>
 
       <ul className="z-10 relative text-sm flex flex-col gap-3 mb-6">
@@ -42,7 +42,7 @@ const PriceCard: React.FC<PriceCardProps> = ({
       </ul>
 
       <a
-        href=""
+        href="https://ig.me/m/lashes.by.teo"
         className=" absolute right-[-30%] bottom-[-10%] bg-[#FF1493] text-white rounded-[30%] w-[200px] h-[100px] flex items-center justify-start pl-6 transition-all duration-500 group-hover:right-0 group-hover:w-full group-hover:rounded-none group-hover:justify-center group-hover:mb-4 bounce-x "
       >
         <div className="font-bold text-sm hover:underline transition-all ">

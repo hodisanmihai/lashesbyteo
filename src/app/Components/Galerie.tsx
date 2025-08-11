@@ -3,6 +3,7 @@ import BackgroundV from "./BackgroundV";
 import { motion, AnimatePresence } from "framer-motion";
 import Contact from "./Contact";
 import { client } from "@/sanity/lib/client";
+import { StepBack, StepForward } from "lucide-react";
 
 const IMAGES_PER_PAGE = 8;
 
@@ -74,6 +75,19 @@ const Galerie = () => {
       id="galerie"
       className="w-full h-auto flex relative flex-col justify-center items-center text-[#333333] px-6 py-12"
     >
+      <svg
+        className="absolute top-0 m-0 w-screen h-[80px] md:h-[100px] lg:h-[120px]"
+        viewBox="0 0 1280 97"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M1280 0H-1L514 28C514 28 774.5 43 918 55C1061.5 67 1280 97 1280 97V0Z"
+          fill="#FFFFFF"
+        />
+      </svg>
+
       <div className="w-full max-w-6xl flex flex-col gap-12">
         <h1 className="secondaryFont text-5xl py-6 leading-tight text-[#333333]">
           Galerie
@@ -127,7 +141,7 @@ const Galerie = () => {
                 onClick={handlePrevPage}
                 className="px-2 py-1 rounded bg-pink-500 text-white"
               >
-                ◀
+                <StepBack />
               </button>
               {Array.from({ length: totalPages }).map((_, i) => (
                 <button
@@ -146,7 +160,7 @@ const Galerie = () => {
                 onClick={handleNextPage}
                 className="px-2 py-1 rounded bg-pink-500 text-white"
               >
-                ▶
+                <StepForward />
               </button>
             </motion.div>
           </div>

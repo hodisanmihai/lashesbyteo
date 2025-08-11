@@ -28,7 +28,7 @@ const Footer = () => {
         <div className="md:w-[1px] md:h-[6rem] hidden md:block bg-white/20"></div>
 
         <div className="flex flex-col items-center  flex-1">
-          <h3 className="mb-3 font-semibold text-lg">Social Media</h3>
+          <h1 className="mb-3 font-semibold text-lg">Social Media</h1>
           <ul className="space-y-2 text-sm text-center">
             <li>
               <a
@@ -60,7 +60,7 @@ const Footer = () => {
         <div className=" md:w-[1px] md:h-[6rem] hidden md:block bg-white/20 text-center"></div>
 
         <div className="flex flex-col items-center flex-1">
-          <h3 className="mb-3 font-semibold text-lg">Quick Links</h3>
+          <h1 className="mb-3 font-semibold text-lg">Quick Links</h1>
           <ul className="space-y-2 text-sm">
             <li>
               <a
