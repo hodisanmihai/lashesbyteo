@@ -1,76 +1,70 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PriceCard from "./PriceCard";
+import { client } from "@/sanity/lib/client";
+
+interface PriceItem {
+  label: string;
+  price: string;
+}
+
+interface PreturiData {
+  title: string;
+  description?: string;
+  prices: PriceItem[];
+}
 
 const Preturi = () => {
-  const priceCards = [
-    {
-      title: "Gene 1D",
-      prices: [
-        { label: "Aplicare completă", price: "60 lei" },
-        { label: "Întreținere (2-3 săptămâni)", price: "40 lei" },
-        { label: "Demontare gene separat", price: "20 lei" },
-        { label: "Demontare cu aplicare nouă", price: "Gratuit" },
-      ],
-      description: "Gene fir cu fir, pentru un look natural și elegant.",
-    },
-    {
-      title: "Gene 2D",
-      prices: [
-        { label: "Aplicare completă", price: "70 lei" },
-        { label: "Întreținere (2-3 săptămâni)", price: "50 lei" },
-        { label: "Demontare gene separat", price: "20 lei" },
-        { label: "Demontare cu aplicare nouă", price: "Gratuit" },
-      ],
-      description: "Gene volum dublu pentru un efect mai intens.",
-    },
-    {
-      title: "Gene 2D",
-      prices: [
-        { label: "Aplicare completă", price: "70 lei" },
-        { label: "Întreținere (2-3 săptămâni)", price: "50 lei" },
-        { label: "Demontare gene separat", price: "20 lei" },
-        { label: "Demontare cu aplicare nouă", price: "Gratuit" },
-      ],
-      description: "Gene volum dublu pentru un efect mai intens.",
-    },
-    {
-      title: "Gene 2D",
-      prices: [
-        { label: "Aplicare completă", price: "70 lei" },
-        { label: "Întreținere (2-3 săptămâni)", price: "50 lei" },
-        { label: "Demontare gene separat", price: "20 lei" },
-        { label: "Demontare cu aplicare nouă", price: "Gratuit" },
-      ],
-      description: "Gene volum dublu pentru un efect mai intens.",
-    },
-    {
-      title: "Gene 3D",
-      prices: [
-        { label: "Aplicare completă", price: "80 lei" },
-        { label: "Întreținere (2-3 săptămâni)", price: "60 lei" },
-        { label: "Demontare gene separat", price: "20 lei" },
-        { label: "Demontare cu aplicare nouă", price: "Gratuit" },
-      ],
-      description: "Volum triple pentru un efect dramatic și plin.",
-    },
-  ];
+  const [priceCards, setPriceCards] = useState<PreturiData[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await client.fetch(`*[_type == "preturi"]{
+        title,
+        description,
+        prices[]{
+          label,
+          price
+        }
+      }`);
+
+      setPriceCards(data || []);
+    };
+
+    fetchData();
+  }, []);
+
+  if (priceCards.length === 0) {
+    <div
+      id="preturi"
+      className="w-full h-auto flex flex-col justify-center items-center bg-[#FFF8FA] text-[#333333] px-6 py-12"
+    >
+      <div className="w-[70%] md:w-full max-w-6xl justify-center flex-col">
+        <h1 className="secondaryFont text-5xl py-6 leading-tight text-[#FF1493]">
+          Prețuri
+        </h1>
+      </div>
+      <p className="w-full flex items-center md:max-w-[70%] flex-nowrap space-x-6 overflow-auto overscroll-x-contain px-12 py-6 scrollbar-thin scrollbar-thumb-[#FF1493] scrollbar-track-transparent">
+        Se Incarca ...
+      </p>
+    </div>;
+  }
 
   return (
     <div
       id="preturi"
       className="w-full h-auto flex flex-col justify-center items-center bg-[#FFF8FA] text-[#333333] px-6 py-12"
     >
-      <div className="w-[70%] md:w-full max-w-6xl justify-center flex-col  ">
+      <div className="w-[70%] md:w-full max-w-6xl justify-center flex-col">
         <h1 className="secondaryFont text-5xl py-6 leading-tight text-[#FF1493]">
           Prețuri
         </h1>
       </div>
-      <div className="w-full flex items-center  md:max-w-[70%] flex-nowrap space-x-6 overflow-auto overscroll-x-contain px-12 py-6 scrollbar-thin scrollbar-thumb-[#FF1493] scrollbar-track-transparent">
-        {priceCards.map(({ title, description, prices }, index) => (
+      <div className="w-full flex items-center md:max-w-[70%] flex-nowrap space-x-6 overflow-auto overscroll-x-contain px-12 py-6 scrollbar-thin scrollbar-thumb-[#FF1493] scrollbar-track-transparent">
+        {priceCards.map(({ title, description = "", prices = [] }, idx) => (
           <PriceCard
-            key={index}
+            key={idx}
             title={title}
             description={description}
             prices={prices}

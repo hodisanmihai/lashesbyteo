@@ -20,12 +20,13 @@ const Navbar = () => {
     <>
       <nav className="fixed top-0 left-0 w-full h-[80px] z-50 flex justify-between items-center px-6 backdrop-blur-sm md:backdrop-blur-none">
         {/* Logo */}
-        <div className="relative w-24 h-full">
+        <div className="w-24 h-full" style={{ position: "relative" }}>
           <a href="#hero">
             <Image
               src="/assets/logo.PNG"
               alt="lashesbyteo"
               fill
+              sizes="96px"
               className="object-contain"
             />
           </a>

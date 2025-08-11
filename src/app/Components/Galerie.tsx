@@ -1,21 +1,59 @@
-"use client";
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BackgroundV from "./BackgroundV";
 import { motion, AnimatePresence } from "framer-motion";
 import Contact from "./Contact";
-
-// Array cu toate imaginile din galerie
-const images = Array.from({ length: 24 }, (_, i) => `/galerie/${i + 1}.jpg`);
+import { client } from "@/sanity/lib/client";
 
 const IMAGES_PER_PAGE = 8;
 
 const Galerie = () => {
+  const [images, setImages] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const totalPages = Math.ceil(images.length / IMAGES_PER_PAGE);
+  useEffect(() => {
+    type GalerieDoc = {
+      images?: {
+        asset?: {
+          url?: string;
+        };
+      }[];
+    };
 
+    const fetchGalerieImages = async () => {
+      try {
+        const data: GalerieDoc[] = await client.fetch(`
+          *[_type == "galerie"]{
+            images[]{
+              asset->{
+                url
+              }
+            }
+          }
+        `);
+
+        const allImages = data.flatMap((doc: GalerieDoc) => doc.images || []);
+
+        const urls = allImages
+          .map((img) => img?.asset?.url)
+          .filter((url): url is string => Boolean(url));
+
+        setImages(urls);
+        setSelectedIndex(0);
+        setCurrentPage(0);
+      } catch (error) {
+        console.error("Failed to fetch galerie images:", error);
+      }
+    };
+
+    fetchGalerieImages();
+  }, []);
+
+  if (images.length === 0) {
+    return <p>Se încarcă galerie...</p>;
+  }
+
+  const totalPages = Math.ceil(images.length / IMAGES_PER_PAGE);
   const start = currentPage * IMAGES_PER_PAGE;
   const currentThumbnails = images.slice(start, start + IMAGES_PER_PAGE);
 
@@ -36,19 +74,6 @@ const Galerie = () => {
       id="galerie"
       className="w-full h-auto flex relative flex-col justify-center items-center text-[#333333] px-6 py-12"
     >
-      <svg
-        className="absolute top-0 m-0 w-screen h-[80px] md:h-[100px] lg:h-[120px]"
-        viewBox="0 0 1280 97"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M1280 0H-1L514 28C514 28 774.5 43 918 55C1061.5 67 1280 97 1280 97V0Z"
-          fill="#ffffff"
-        />
-      </svg>
-
       <div className="w-full max-w-6xl flex flex-col gap-12">
         <h1 className="secondaryFont text-5xl py-6 leading-tight text-[#333333]">
           Galerie
@@ -61,7 +86,7 @@ const Galerie = () => {
                 key={selectedIndex}
                 src={images[selectedIndex]}
                 alt={`Preview`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.05 }}
@@ -82,7 +107,7 @@ const Galerie = () => {
                     src={img}
                     alt={`Thumbnail ${globalIndex}`}
                     onClick={() => handleSelect(globalIndex)}
-                    className={`w-full h-[80px] object-cover rounded-lg cursor-pointer border-2 ${
+                    className={`w-full h-[80px] object-contain rounded-lg cursor-pointer border-2 ${
                       selectedIndex === globalIndex
                         ? "border-pink-500"
                         : "border-transparent"
